@@ -3,7 +3,7 @@ Contributors: WisdmLabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest
 Tags: nocaptcha recaptcha, contact form 7
 Requires at least: 3.9
-Tested up to: 4.1
+Tested up to: 4.1.1
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -67,4 +67,8 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 
 = 1.0.0 =
 * Plugin released.
+
+= 1.1.0 =
+* Fixed the issue `Making noCaptcha required with Contact form 7` for Contact form 7 vesrion 4.1
+* Fixed the issue `i-am-a-robot` where recaptcha returned false every time the form is submited for PHP 5.6+
 
