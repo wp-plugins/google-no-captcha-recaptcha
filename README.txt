@@ -69,6 +69,6 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 * Plugin released.
 
 = 1.1.0 =
-* Fixed the issue `Making noCaptcha required with Contact form 7` for Contact form 7 vesrion 4.1
-* Fixed the issue `i-am-a-robot` where recaptcha returned false every time the form is submited for PHP 5.6+
+* Fixed the issue `Making noCaptcha required with Contact form 7` for [Contact form 7 vesrion 4.1]
+* Fixed the issue `i-am-a-robot` where recaptcha returned false every time the form is submited for [PHP 5.6+]
 
