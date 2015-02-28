@@ -9,7 +9,7 @@
  *
  * Plugin Name:       Google No CAPTCHA reCAPTCHA by WisdmLabs
  * Description:       The plugin adds a No CAPTCHA reCAPTCHA tag in Contact Form 7, which can be used to include a No CAPTCHA reCAPTCHA anti-spam field.
- * Version:           1.1.0
+ * Version:           1.1.1
  * Author:            WisdmLabs
  * Author URI:        http://wisdmlabs.com
  * Text Domain:       google-nocaptcha-recaptcha-locale
@@ -56,7 +56,6 @@ require_once( plugin_dir_path( __FILE__ ) . 'public/class-wdm-google-nocaptcha-r
 
 
 add_action( 'plugins_loaded', array( 'Wdm_Google_Nocaptcha_Recaptcha', 'get_instance' ) );
-
 /* ----------------------------------------------------------------------------*
  * Dashboard and Administrative Functionality
  * ---------------------------------------------------------------------------- */
