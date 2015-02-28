@@ -1,6 +1,6 @@
 <?php
 
-if ( !class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
+if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 
 	class Wdm_Contact_Form_7_Public {
 
@@ -50,45 +50,45 @@ if ( !class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 
 			$site_key	 = $wdm_recaptcha_settings_values->get_option( 'general_site_key' );
 			$secret_key	 = $wdm_recaptcha_settings_values->get_option( 'general_secret_key' );
-			
+
 			//if site key and secret key are available, then validate captcha
-			if ( !empty($site_key) && !empty($secret_key) ){
+			if ( ! empty( $site_key ) && ! empty( $secret_key ) ) {
 				$tag = new WPCF7_Shortcode( $tag );
-	
+
 				$type	 = $tag->type;
-				$name	 = !empty( $tag->name ) ? $tag->name : 'recaptcha';
-	
+				$name	 = ! empty( $tag->name ) ? $tag->name : 'recaptcha';
+
 				$recaptcha_value = isset( $_POST[ 'g-recaptcha-response' ] ) ? (string) $_POST[ 'g-recaptcha-response' ] : '';
-				
-				$result_type = gettype($result);
-				
-				if ($result_type === 'object' ) {
+			    
+				//cf7 4.1 replaced results array structure to object  
+				$result_type	 = gettype( $result );
+				if ( $result_type === 'object' ) {
 					if ( 0 == strlen( trim( $recaptcha_value ) ) ) {   //recaptcha is uncheked
 						$result->invalidate( $tag, wpcf7_get_message( 'no_re_uncheked' ) );
 					} else {
 						$captcha_value = $this->check_recaptcha( $recaptcha_value );
-						if ( !$captcha_value ) {  //google returned false
+						if ( ! $captcha_value ) {  //google returned false
 							$result->invalidate( $tag, wpcf7_get_message( 'no_re_bot_detected' ) );
 						}
 					}
-				}else{
-					
+				} else {
+
 					if ( 0 == strlen( trim( $recaptcha_value ) ) ) {   //recaptcha is uncheked
-						$result[ 'valid' ]			 = false;
-						$reason = array($name =>  wpcf7_get_message( 'no_re_uncheked' ) ) ;
-						$result[ 'reason' ] = array_merge($result[ 'reason' ],$reason);
+						$result[ 'valid' ]	 = false;
+						$reason				 = array( $name => wpcf7_get_message( 'no_re_uncheked' ) );
+						$result[ 'reason' ]	 = array_merge( $result[ 'reason' ], $reason );
 					} else {
 						$captcha_value = $this->check_recaptcha( $recaptcha_value );
-						if ( !$captcha_value ) {  //google returned false 
-							$result[ 'valid' ]			 = false;
-							$reason = array($name =>  wpcf7_get_message( 'no_re_bot_detected' ) ) ;
-							$result[ 'reason' ] = array_merge($result[ 'reason' ],$reason);	
+						if ( ! $captcha_value ) {  //google returned false 
+							$result[ 'valid' ]	 = false;
+							$reason				 = array( $name => wpcf7_get_message( 'no_re_bot_detected' ) );
+							$result[ 'reason' ]	 = array_merge( $result[ 'reason' ], $reason );
 						}
-					
+
 						if ( $captcha_value && true == $result[ 'valid' ] ) {
 							//reset captcha if form was submitted successfully
 						}
-					}	
+					}
 				}
 			}
 			return $result;
@@ -106,17 +106,20 @@ if ( !class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				return true;
 			}
 
-			if ( empty( $secret_key ) )
+			if ( empty( $secret_key ) ) {
 				return false;
-			
+			}
+
+			$no_ssl_array = array(
+				'ssl' => array(
+					'verify_peer'		 => false,
+					'verify_peer_name'	 => false
+				)
+			);
+
 			//complusory for 5.6
-			$ctx = stream_context_create([
-				'ssl' => [
-				    'verify_peer' =>false,
-				    'verify_peer_name'=>false	
-				],
-			    ]);
-			$json_reply = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret_key . "&response=" . $recaptcha_value , false, $ctx);
+			$ctx		 = stream_context_create( $no_ssl_array );
+			$json_reply	 = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret_key . "&response=" . $recaptcha_value, false, $ctx );
 
 			$reply_obj = json_decode( $json_reply );
 
