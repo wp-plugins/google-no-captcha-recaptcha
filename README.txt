@@ -72,3 +72,6 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 * Fixed the issue `Making noCaptcha required with Contact form 7` for [Contact form 7 version 4.1]
 * Fixed the issue `i-am-a-robot` where recaptcha returned false every time the form is submited for [PHP 5.6+]
 
+= 1.1.1 =
+* Fixed the issue `Site Breaking while using version 1.1.0`
+ 
