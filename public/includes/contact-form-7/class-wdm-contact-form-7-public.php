@@ -190,14 +190,14 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				$atts	 = array();
 
 				$atts[ 'class' ]	 = "wdm-nocapt-recapt " . $tag->get_class_option( $class );
-				$atts[ 'id' ]		 = 'wdm-nocapt-recapt-id';
+				$atts[ 'id' ]		 = "wdm-nocapt-recapt-id";
 				$atts[ 'tabindex' ]	 = $tag->get_option( 'tabindex', 'int', true );
 				$atts[ 'type' ]		 = 'recaptcha';
 
 
 				$atts = wpcf7_format_atts( $atts );
 
-				$html = sprintf( '<div %1$s"></div>', $atts );
+				$html = sprintf( '<div %1$s></div>', $atts );
 
 
 				if ( isset( $validation_error ) ) {

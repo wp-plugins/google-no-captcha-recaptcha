@@ -74,4 +74,6 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 
 = 1.1.1 =
 * Fixed the issue `Site Breaking while using version 1.1.0`
- 
+
+= 1.1.2 =
+* Extra quote in id="wdm-nocapt-recapt-id"" removed
