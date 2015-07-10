@@ -47,7 +47,7 @@ Integrate this API into your Contact Form 7 forms, using this plugin.
 
 1. Create domain specific No Captcha reCaptcha key from https://www.google.com/recaptcha/admin#list
 2. From your site dashboard, go to Settings > Google No Captcha reCaptcha
-3. Enter your site key and secret key and save changes
+3. Enter your site key, secret key and save changes
 
 
 
