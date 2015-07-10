@@ -3,7 +3,7 @@ Contributors: WisdmLabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest
 Tags: nocaptcha recaptcha, contact form 7
 Requires at least: 3.9
-Tested up to: 4.1.1
+Tested up to: 4.2.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
@@ -43,6 +43,13 @@ Integrate this API into your Contact Form 7 forms, using this plugin.
 3. Upload the `google-nocaptcha-recaptcha` directory to the `/wp-content/plugins/` directory
 4. Activate the plugin in the Plugin dashboard
 
+= Setting up No Captcha reCaptcha =
+
+1. Create domain specific No Captcha reCaptcha key from https://www.google.com/recaptcha/admin#list
+2. From your site dashboard, go to Settings > Google No Captcha reCaptcha
+3. Enter your site key and secret key and save changes
+
+
 
 == Frequently Asked Questions ==
 
@@ -65,15 +72,27 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 
 == Changelog ==
 
-= 1.0.0 =
-* Plugin released.
+= 2.0 =
+* Fixed compatibility issue with CF7v4.2+
+* file_get_content replaced with wp_remote_post, thanks to @SAM for his contribution [https://wordpress.org/support/topic/validation-problems-8]
+* Added id field to the No Captcha reCaptcha pane 
+* Fixed Notice "$class variable is not defined in nocaptcha_shortcode_handler() in public/includes/contact-form-7/class-wdm-contact-form-7-public.php on line 173"  
+* Made changes to the render_recaptcha.js file for future developement 
+
+= 1.1.2 =
+* Extra quote in id="wdm-nocapt-recapt-id"" removed
+
+= 1.1.1 =
+* Fixed the issue `Site Breaking while using version 1.1.0`
 
 = 1.1.0 =
 * Fixed the issue `Making noCaptcha required with Contact form 7` for [Contact form 7 version 4.1]
 * Fixed the issue `i-am-a-robot` where recaptcha returned false every time the form is submited for [PHP 5.6+]
 
-= 1.1.1 =
-* Fixed the issue `Site Breaking while using version 1.1.0`
+= 1.0.0 =
+* Plugin released.
 
-= 1.1.2 =
-* Extra quote in id="wdm-nocapt-recapt-id"" removed
+
+
+
+

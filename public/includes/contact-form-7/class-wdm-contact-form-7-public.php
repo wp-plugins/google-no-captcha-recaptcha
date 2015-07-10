@@ -30,6 +30,7 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 		}
 
 		private function __construct() {
+
 			add_filter( 'wpcf7_validate_recaptcha', array( $this, 'recaptcha_validation_filter' ), 10, 2 );
 			add_filter( 'wpcf7_messages', array( $this, 'recaptcha_messages' ) );
 		}
@@ -46,6 +47,8 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 		 */
 
 		public function recaptcha_validation_filter( $result, $tag ) {
+
+
 			global $wdm_recaptcha_settings_values;
 
 			$site_key	 = $wdm_recaptcha_settings_values->get_option( 'general_site_key' );
@@ -55,13 +58,13 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 			if ( ! empty( $site_key ) && ! empty( $secret_key ) ) {
 				$tag = new WPCF7_Shortcode( $tag );
 
-				$type	 = $tag->type;
+				$type	 = $tag->name;
 				$name	 = ! empty( $tag->name ) ? $tag->name : 'recaptcha';
 
 				$recaptcha_value = isset( $_POST[ 'g-recaptcha-response' ] ) ? (string) $_POST[ 'g-recaptcha-response' ] : '';
-			    
+
 				//cf7 4.1 replaced results array structure to object  
-				$result_type	 = gettype( $result );
+				$result_type = gettype( $result );
 				if ( $result_type === 'object' ) {
 					if ( 0 == strlen( trim( $recaptcha_value ) ) ) {   //recaptcha is uncheked
 						$result->invalidate( $tag, wpcf7_get_message( 'no_re_uncheked' ) );
@@ -110,21 +113,37 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				return false;
 			}
 
-			$no_ssl_array = array(
-				'ssl' => array(
-					'verify_peer'		 => false,
-					'verify_peer_name'	 => false
+			/* $no_ssl_array = array(
+			  'ssl' => array(
+			  'verify_peer'		 => false,
+			  'verify_peer_name'	 => false
+			  )
+			  );
+   */
+			
+			
+/** changes made based on Sam's reply 
+ *  https://wordpress.org/support/topic/validation-problems-8
+ *  Thank you Sam for your contribution
+ */
+			$response = wp_remote_post(
+			'https://www.google.com/recaptcha/api/siteverify', array(
+				'method' => 'POST',
+				'body'	 => array(
+					'secret'	 => $secret_key,
+					'response'	 => $recaptcha_value
 				)
+			)
 			);
 
-			//complusory for 5.6
-			$ctx		 = stream_context_create( $no_ssl_array );
-			$json_reply	 = file_get_contents( "https://www.google.com/recaptcha/api/siteverify?secret=" . $secret_key . "&response=" . $recaptcha_value, false, $ctx );
+			$body_response	 = wp_remote_retrieve_body( $response );
+			$reply_obj		 = json_decode( $body_response );
 
-			$reply_obj = json_decode( $json_reply );
 
 			if ( $reply_obj->success == 1 ) {
+
 				setcookie( 'wdm_cf7_cookie', hash( 'sha512', $_POST[ 'g-recaptcha-response' ] . $secret_key ), strtotime( '+3 minutes' ) );
+
 				return true;
 			}
 			return false;
@@ -157,6 +176,8 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 		 */
 
 		public static function nocaptcha_shortcode_handler( $tag ) {
+
+			//var_dump($tag);
 			$html = '';
 
 			global $wdm_recaptcha_settings_values;
@@ -166,18 +187,21 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 
 			if ( trim( $site_key ) != '' && trim( $secret_key ) != '' ) {
 				$tag					 = new WPCF7_Shortcode( $tag );
+				$class					 = wpcf7_form_controls_class( $tag->type );
+				$name					 = $tag->name;
+				$recaptcha_id			 = "wdm-nocapt-recapt-id-" . $name . $tag->get_id_option();
 				if ( empty( $tag->name ) )
 					return '';
 				$validation_error		 = wpcf7_get_validation_error( $tag->name );
 				if ( $validation_error )
-					$class .= ' wpcf7-not-valid';
+					$class .= 'wpcf7-not-valid';
 				$atts[ 'aria-invalid' ]	 = $validation_error ? 'true' : 'false';
 
 				wp_enqueue_script( 'wdm_render_recaptcha', plugins_url( '/assets/js/render_recaptcha.js', dirname( dirname( __FILE__ ) ) ), array(), false, true );
 				if ( $tag->has_option( 'theme:dark' ) ) {
-					wp_localize_script( 'wdm_render_recaptcha', 'wdm_recaptcha', array( 'sitekey' => $site_key, 'theme' => 'dark' ) );
+					wp_localize_script( 'wdm_render_recaptcha', 'wdm_recaptcha', array( 'sitekey' => $site_key, 'theme' => 'dark', 'recaptcha_id' => $recaptcha_id ) );
 				} else {
-					wp_localize_script( 'wdm_render_recaptcha', 'wdm_recaptcha', array( 'sitekey' => $site_key, 'theme' => 'light' ) );
+					wp_localize_script( 'wdm_render_recaptcha', 'wdm_recaptcha', array( 'sitekey' => $site_key, 'theme' => 'light', 'recaptcha_id' => $recaptcha_id ) );
 				}
 				if ( is_ssl() ) {
 					$protocol_to_be_used = 'https://';
@@ -186,11 +210,11 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				}
 				wp_register_script( 'google-nocaptcha-recaptcha-api', "{$protocol_to_be_used}www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit", array( 'wdm_render_recaptcha' ), '1.0.0', false );
 				wp_enqueue_script( 'google-nocaptcha-recaptcha-api' );
-				$class	 = wpcf7_form_controls_class( $tag->type );
-				$atts	 = array();
+
+				$atts = array();
 
 				$atts[ 'class' ]	 = "wdm-nocapt-recapt " . $tag->get_class_option( $class );
-				$atts[ 'id' ]		 = "wdm-nocapt-recapt-id";
+				$atts[ 'id' ]		 = $recaptcha_id;
 				$atts[ 'tabindex' ]	 = $tag->get_option( 'tabindex', 'int', true );
 				$atts[ 'type' ]		 = 'recaptcha';
 
