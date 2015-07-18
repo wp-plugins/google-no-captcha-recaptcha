@@ -130,6 +130,7 @@ class Wdm_Google_Nocaptcha_Recaptcha_Admin {
 	 */
 	public function admin_init() {
 
+		
 		register_setting( $this->option_name, $this->option_name );
 
 		// Get the value of this setting
@@ -154,23 +155,32 @@ class Wdm_Google_Nocaptcha_Recaptcha_Admin {
 				$array_of_data_types = array( 'text', 'password',
 					'email', 'hidden', 'search', 'tel', 'url', 'date',
 					'datetime', 'datetime-local', 'month', 'week',
-					'time', 'number', 'range', 'color', );
+					'time', 'number', 'range', 'color');
 
 				$callback = 'print_field_of_' . $single_field_data[ 'type' ] . '_type';
 
+				
 				if ( in_array( $single_field_data[ 'type' ], $array_of_data_types ) ) {
 
 					$callback = "print_one_line_field";
+					
 				}
+				else if($single_field_data[ 'type' ]==="select"){
+					$callback = "print_field_of_select_type";
+					
+				}
+			
 
 				// Get the field name from the $args array
 				$single_field_data[ 'database_field_name' ]			 = $this->section_slug . '_' . $single_field_data_id;
+				
 				$single_field_data[ 'field' ]						 = $this->option_name . '[' . $single_field_data[ 'database_field_name' ] . ']';
 				$single_field_data[ 'values_stored_in_database' ]	 = $values_stored_in_database;
 
 				$single_field_data[ 'tip' ]		 = isset( $single_field_data[ 'tip' ] ) ? $single_field_data[ 'tip' ] : '';
 				$single_field_data[ 'default' ]	 = isset( $single_field_data[ 'default' ] ) ? $single_field_data[ 'default' ] : '';
 
+				
 				add_settings_field(
 				$single_field_data_id, $single_field_data[ 'name' ], array(
 					$this, $callback ), $this->plugin_slug, $single_section_slug, $single_field_data
@@ -229,7 +239,7 @@ class Wdm_Google_Nocaptcha_Recaptcha_Admin {
 			$value = $args[ 'default' ];
 		}
 
-		$field_html = sprintf( '<input type="%s" name="%s" id="%s" value="%s" %s/><label for="%s"> %s </label>', $args[ 'type' ], $args[ 'field' ], $args[ 'field' ], $value, $field_settings, $args[ 'field' ], $args[ 'tip' ] );
+		$field_html = sprintf( '<input type="%s" name="%s" class="wdm_textbox" id="%s" value="%s" %s/><label for="%s"> %s </label>', $args[ 'type' ], $args[ 'field' ], $args[ 'field' ], $value, $field_settings, $args[ 'field' ], $args[ 'tip' ] );
 
 		echo apply_filters( $database_field_name . '_field', $field_html, $args );
 	}
@@ -239,6 +249,7 @@ class Wdm_Google_Nocaptcha_Recaptcha_Admin {
 	 */
 	public function print_field_of_select_type( $args ) {
 
+		
 		$field_settings = '';
 
 		if ( isset( $args[ $args[ 'type' ] . '_settings' ] ) && !empty( $args[ $args[ 'type' ] . '_settings' ] ) && is_array( $args[ $args[ 'type' ] . '_settings' ] ) ) {

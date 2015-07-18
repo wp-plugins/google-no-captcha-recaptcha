@@ -1,4 +1,6 @@
-jQuery( window ).load( function () {    
+jQuery( window ).load( function () {
+
+    
     var captcha_count = jQuery( 'div[id^="wdm-nocapt-recapt-id-recaptcha-"]' ).length;
     if ( captcha_count > 0 ) {
         jQuery.each( jQuery( 'div[id^="wdm-nocapt-recapt-id-recaptcha-"]' ), function () {

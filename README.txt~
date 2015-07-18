@@ -72,12 +72,6 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 
 == Changelog ==
 
-= 3.0 =
-* Multi-form support
-* Resolved Localization issue
-* Multi-language support
-* Field for custom error message added in admin dashboard settings
-
 = 2.0 =
 * Fixed compatibility issue with CF7v4.2+
 * file_get_content replaced with wp_remote_post, thanks to @SAM for his contribution [https://wordpress.org/support/topic/validation-problems-8]

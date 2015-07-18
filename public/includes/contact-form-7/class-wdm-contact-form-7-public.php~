@@ -266,7 +266,9 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				$atts = wpcf7_format_atts( $atts );
 
 				$html = sprintf( '<div %1$s></div>', $atts );
-				
+				//$html = sprintf( '<div %1$s style="transform:scale(0.77);transform-origin:0;-webkit-transform:scale(0.77);transform:scale(0.77);-webkit-transform-origin:0 0;transform-origin:0 0; 0"></div>', $atts );
+
+				//$html.="<div id='wisdm-ad'>Brought to you by Wisdmlabs <a href='https://wisdmlabs.com/wordpress-development-services/plugin-development/' title=' WordPress Plugin Customization Expert ' rel='nofollow' target='_blank'>WordPress Plugin Customization</a> Expert</div>";
 				if ( isset( $validation_error ) ) {
 					$html .= sprintf(
 					'<span class="wpcf7-form-control-wrap %1$s">%2$s</span>', sanitize_html_class( $tag->name ), $validation_error );

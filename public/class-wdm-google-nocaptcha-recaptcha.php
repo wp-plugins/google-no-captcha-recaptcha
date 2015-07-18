@@ -9,8 +9,6 @@
  * @link      http://wisdmlabs.com
  * @copyright 2014 WisdmLabs 
  */
-
-
 class Wdm_Google_Nocaptcha_Recaptcha {
 
 	/**
@@ -50,7 +48,6 @@ class Wdm_Google_Nocaptcha_Recaptcha {
 
 		// Load plugin text domain
 		add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
-
 	}
 
 	/**
@@ -63,7 +60,6 @@ class Wdm_Google_Nocaptcha_Recaptcha {
 	public function get_plugin_slug() {
 		return $this->plugin_slug;
 	}
-
 
 	/**
 	 * Return an instance of this class.
@@ -82,7 +78,6 @@ class Wdm_Google_Nocaptcha_Recaptcha {
 		return self::$instance;
 	}
 
-
 	/**
 	 * Load the plugin text domain for translation.
 	 *
@@ -90,11 +85,14 @@ class Wdm_Google_Nocaptcha_Recaptcha {
 	 */
 	public function load_plugin_textdomain() {
 
-		$domain	 = $this->plugin_slug;
-		$locale	 = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$domain = $this->plugin_slug . "-locale";
 
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, FALSE, basename( plugin_dir_path( dirname( __FILE__ ) ) ) . '/languages/' );
+		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+
+		if ( ! defined( 'WDM_LAND_DIR' ) ) {
+			define( 'WDM_LAND_DIR', dirname( dirname( __FILE__ )  ) . "/languages/");
+		}
+		load_textdomain( $domain, WDM_LAND_DIR . $domain . '-' . $locale . '.mo' );
 	}
 
 }

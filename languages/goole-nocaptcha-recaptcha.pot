@@ -57,7 +57,7 @@ msgstr ""
 
 #: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:110
 msgid "No CAPTCHA reCAPTCHA is unchecked, Check to proceed"
-msgstr ""
+msgstr "abcd"
 
 #: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:113
 msgid "Your activity seems like a bot"
