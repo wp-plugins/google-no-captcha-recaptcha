@@ -43,7 +43,7 @@ $wdm_recaptcha_section = array(
 		'tip'			 => '<div class="captcha_setting_text">' . __( 'Select the language in which the captcha should be rendered', "google-nocaptcha-recaptcha-locale" ) . '</div>'
 	),
 	'wdm_custom_unchecked_error_msg' => array(
-		'name'		 => 'Custom Error Message',
+		'name'		 => 'Custom Error Messages',
 		'type'		 => 'text',
 		'default'	 => '',
 		'tip'		 => '<br><div class="captcha_setting_text">' . __( 'Custom error message to be displayed when NoCaptcha reCaptcha is not checked', "google-nocaptcha-recaptcha-locale" ) . '</i>'
