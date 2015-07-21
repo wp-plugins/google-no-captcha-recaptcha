@@ -8,7 +8,6 @@ jQuery( window ).load( function () {
                 'sitekey': wdm_recaptcha.sitekey,
                 'theme': theme
             } );
-            i++;
         } );
     }  
 } );
