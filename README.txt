@@ -97,8 +97,8 @@ For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.m
 1. No CAPTCHA reCAPTCHA settings page
 2. No CAPTCHA reCAPTCHA tag generator in in Contact Form 7
 3. No CAPTCHA reCAPTCHA tag in Contact Form 7 backend
-4. No CAPTCHA reCAPTCHA field on a Contact Form(Dark theme)
-5. No CAPTCHA reCAPTCHA field on a Contact Form(Light theme)
+4. No CAPTCHA reCAPTCHA field on a Contact Form(Light theme)
+5. No CAPTCHA reCAPTCHA field on a Contact Form(Dark theme)
 
 == Changelog ==
 
