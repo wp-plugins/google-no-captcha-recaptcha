@@ -1,7 +1,7 @@
 === Google No CAPTCHA reCAPTCHA by WisdmLabs ===
 Contributors: WisdmLabs
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=info%40wisdmlabs%2ecom&lc=US&item_name=WisdmLabs%20Plugin%20Donation&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHostedGuest
-Tags: nocaptcha recaptcha, contact form 7, Google nocaptcha recaptcha, contact form 7 security, spam filter, captcha, form security, security
+Tags: nocaptcha recaptcha, contact form 7, Google nocaptcha recaptcha, contact form 7 security, spam filter, captcha, form security, security, wordpress captcha
 Requires at least: 3.9
 Tested up to: 4.2.2
 Stable tag: trunk
