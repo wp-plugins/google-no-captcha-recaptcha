@@ -59,13 +59,13 @@ Integrate this API into your Contact Form 7 forms, using this plugin.
 
 == Frequently Asked Questions ==
 
-= Help! I've added the tag, but it doesn't seem to work! =
-
-In case you do not see a No CAPTCHA reCAPTCHA field, kindly ensure that you have added the needed API keys in the plugin settings.
-
 = Where can I find the plugin's settings? =
 
 The plugin's settings can be found under 'Settings -> Google NoCaptcha ReCaptcha Settings'
+
+= Help! I've added the tag, but it doesn't seem to work! =
+
+In case you do not see a No CAPTCHA reCAPTCHA field, kindly ensure that you have added the needed API keys in the plugin settings.
 
 = How do I acquire a Secret Key and Site Key =
 
@@ -84,7 +84,7 @@ Custom error messages can be set from 'Settings -> Google NoCaptcha ReCaptcha Se
 The error messages can be translated using the "goole-nocaptcha-recaptcha-locale.pot" file, present in the languages folder of the plugin.
 For translating the message in this file follow the below steps:
 
-1)Convert the .pot file to .mo file and add it to the languages folder of the plugin along with the translated .pot file.
+1) Convert the .pot file to .mo file and add it to the languages folder of the plugin along with the translated .pot file.
 
 "goole-nocaptcha-recaptcha-locale-<language-code>.mo" and "goole-nocaptcha-recaptcha-locale-<language-code>.pot".
 
