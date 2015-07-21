@@ -15,15 +15,15 @@ The plugin adds a No CAPTCHA reCAPTCHA tag in Contact Form 7, which can be used 
 Research has shown that the reCAPTCHA field can be decoded by smart bots 99% of the time. Google has thus introduced a 'No CAPTCHA reCAPTCHA' API which has a risk analysis engine backing the verification process.
 Integrate this API into your Contact Form 7 forms, using this plugin.
 
-* This Google No CAPTCHA reCAPTCHA plugin is localization ready.
+* The Google No CAPTCHA reCAPTCHA plugin provides an option to set a custom error message when the CAPTCHA field is not set or if a robot is detected.
 
-* Provision for custom error message when captcha is not set or if robot is detected)
+* The plugin is localization ready, which means you can display the error message in your local language.
 
-* The plugin provides Multi-language support.
+* It also provides support to display the CAPTCHA in multiple languages.
 
-* The plugin is Multi-form compatible.
+* The plugin is multiform compatible.
 
-* The plugin is Multi-site compatible. Do ensure that you add the keys for every sub-domain in the plugin's settings.
+* The plugin is multisite compatible. Do ensure that you add the keys for every sub-domain in the plugin's settings.
 
 == Installation ==
 
