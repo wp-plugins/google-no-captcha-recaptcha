@@ -15,9 +15,15 @@ The plugin adds a No CAPTCHA reCAPTCHA tag in Contact Form 7, which can be used 
 Research has shown that the reCAPTCHA field can be decoded by smart bots 99% of the time. Google has thus introduced a 'No CAPTCHA reCAPTCHA' API which has a risk analysis engine backing the verification process.
 Integrate this API into your Contact Form 7 forms, using this plugin.
 
-* This Google No CAPTCHA reCAPTCHA plugin is localization ready, however currently supports CAPTCHA strings only in English.
+* This Google No CAPTCHA reCAPTCHA plugin is localization ready.
 
-* The plugin is multisite compatible. Do ensure that you add the keys for every sub-domain in the plugin's settings.
+* Provision for custom error message when captcha is not set or if robot is detected)
+
+* The plugin provides Multi-language support.
+
+* The plugin is Multi-form compatible.
+
+* The plugin is Multi-site compatible. Do ensure that you add the keys for every sub-domain in the plugin's settings.
 
 == Installation ==
 
@@ -64,6 +70,27 @@ The plugin's settings can be found under 'Settings -> Google NoCaptcha ReCaptcha
 = How do I acquire a Secret Key and Site Key =
 
 In the plugin settings, you'll have to enter a Secret Key and a Site Key. You can get the keys, by logging into a Gmail account and registering your site, using this link: https://www.google.com/recaptcha/admin#list
+
+= How to set the captcha language? =
+
+Captcha language can be set from 'Settings -> Google NoCaptcha ReCaptcha Settings -> Language'
+
+= How to set custom error message? =
+
+Custom error messages can be set from 'Settings -> Google NoCaptcha ReCaptcha Settings -> Custom Error Messages'
+
+= How to Localize the messages displayed? =
+
+The error messages can be translated using the "goole-nocaptcha-recaptcha-locale.pot" file, present in the languages folder of the plugin.
+For translating the message in this file follow the below steps:
+
+1)Convert the .pot file to .mo file and add it to the languages folder of the plugin along with the translated .pot file.
+
+"goole-nocaptcha-recaptcha-locale-<language-code>.mo" and "goole-nocaptcha-recaptcha-locale-<language-code>.pot".
+
+For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.mo and goole-nocaptcha-recaptcha-locale-de_DE.pot
+
+2) Place the .po and .mo file in the languages folder with in plugin folder.
 
 == Screenshots ==
 
