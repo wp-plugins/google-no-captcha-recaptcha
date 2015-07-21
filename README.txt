@@ -71,7 +71,8 @@ In the plugin settings, you'll have to enter a Secret Key and a Site Key. You ca
 2. The No CAPTCHA reCAPTCHA field on a Contact Form
 
 == Changelog ==
-= 3.1 =
+
+= 3.0.1 =
 * Fixed Minor Bug
 
 = 3.0 =
