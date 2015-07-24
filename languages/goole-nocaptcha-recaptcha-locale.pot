@@ -1,0 +1,69 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Google No CAPTCHA reCAPTCHA by WisdmLabs\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-23 18:17+0530\n"
+"PO-Revision-Date: 2014-12-23 18:18+0530\n"
+"Last-Translator: Namrata <support@wisdmlabs.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /home/sumit/Desktop/Plugins/google-nocaptcha-recaptcha\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: google-recaptcha-nocaptcha.php:30
+#, php-format
+msgid "Please enter the Site key provided by Google while %1$s registering your site for reCaptcha service %2$s"
+msgstr ""
+
+#: google-recaptcha-nocaptcha.php:36
+msgid "Copy the Secret key provided by Google in this textbox"
+msgstr ""
+
+#: admin/class-google-recaptcha-nocaptcha-admin.php:101
+msgid "Google No CAPTCHA reCAPTCHA Settings"
+msgstr ""
+
+#: admin/class-google-recaptcha-nocaptcha-admin.php:101
+msgid "Google No CAPTCHA reCAPTCHA"
+msgstr ""
+
+#: admin/class-google-recaptcha-nocaptcha-admin.php:123
+msgid "Settings"
+msgstr ""
+
+#: admin/includes/contact-form-7/class-wdm-contact-form-7-admin.php:53
+msgid "No CAPTCHA reCAPTCHA"
+msgstr ""
+
+#: admin/views/contact-form-7/create_pane.php:4
+msgid "Name"
+msgstr ""
+
+#: admin/views/contact-form-7/create_pane.php:9
+msgid "Use dark theme for No CAPTCHA reCAPTCHA?"
+msgstr ""
+
+#: admin/views/contact-form-7/create_pane.php:13
+msgid "Copy this code and paste it into the form on the left."
+msgstr ""
+
+#: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:109
+msgid "No CAPTCHA reCAPTCHA is unchecked"
+msgstr ""
+
+#: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:110
+msgid "No CAPTCHA reCAPTCHA is unchecked, Check to proceed"
+msgstr "abcd"
+
+#: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:113
+msgid "Your activity seems like a bot"
+msgstr ""
+
+#: public/includes/contact-form-7/class-wdm-contact-form-7-public.php:114
+msgid "It seems that you are a bot, Please try again."
+msgstr ""
+

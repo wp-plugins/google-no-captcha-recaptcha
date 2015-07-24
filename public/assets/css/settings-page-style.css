@@ -1,0 +1,17 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 18 Jul, 2015, 2:34:05 PM
+    Author     : jaithera
+*/
+.wdm_textbox{
+    width:40%
+}
+.captcha_setting_text{
+    font-size:11px !important;
+    color:#888;
+}
+
