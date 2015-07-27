@@ -36,12 +36,6 @@ $wdm_recaptcha_section = array(
 		'default'	 => '',
 		'tip'		 => '<br><div class="captcha_setting_text">' . __( 'Copy the Secret key provided by Google in this textbox', "google-nocaptcha-recaptcha-locale" ) . '</div>'
 	),
-	'captcha_size'					 => array(
-		'name'			 => 'Captcha size',
-		'type'			 => 'select',
-		'option_values'	 => captcha_sizes(),
-		'tip'			 => '<br><div class="captcha_setting_text">' . __( 'Set the captcha size', "google-nocaptcha-recaptcha-locale" ) . '</div>'
-	),
 	'language'						 => array(
 		'name'			 => 'Language',
 		'type'			 => 'select',
