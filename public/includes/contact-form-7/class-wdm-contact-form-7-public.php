@@ -266,7 +266,8 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				
 				if($tag->has_option( 'captcha_size' ))
 				{
-					$captcha_size=$tag->get_option( 'captcha_size' )[0];
+					$captcha_size_array=$tag->get_option( 'captcha_size' );
+					$captcha_size=$captcha_size_array[0];
 				}
 				else{
 					$captcha_size=1;

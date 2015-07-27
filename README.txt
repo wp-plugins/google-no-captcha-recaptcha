@@ -106,6 +106,10 @@ For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.m
 
 == Changelog ==
 
+= 4.0.2 =
+* Fixed undefined variable issue.
+* Fixed PHP 5.3 incompatibility issue.
+
 = 4.0.1 =
 * Fixed Minor Bug
 
