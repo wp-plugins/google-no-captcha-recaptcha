@@ -71,6 +71,10 @@ In case you do not see a No CAPTCHA reCAPTCHA field, kindly ensure that you have
 
 In the plugin settings, you'll have to enter a Secret Key and a Site Key. You can get the keys, by logging into a Gmail account and registering your site, using this link: https://www.google.com/recaptcha/admin#list
 
+= How to resize captcha? =
+
+Captcha can be resized by selecting the size during recaptcha tag generation.
+
 = How to set the captcha language? =
 
 Captcha language can be set from 'Settings -> Google NoCaptcha ReCaptcha Settings -> Language'
@@ -102,8 +106,6 @@ For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.m
 
 == Changelog ==
 
-= 4.0 =
-* Captcha resize
 
 = 3.0.3 =
 * Fixed Minor Bug
