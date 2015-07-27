@@ -1,7 +1,7 @@
 
 <div class="control-box">
 	<fieldset>
-	<!--<legend><?php // echo sprintf( esc_html( $description ), $desc_link );    ?></legend>-->
+	<!--<legend><?php // echo sprintf( esc_html( $description ), $desc_link );      ?></legend>-->
 
 		<table class="form-table">
 			<tbody>
@@ -14,9 +14,23 @@
 					<th scope="row"><label for="<?php echo esc_attr( $args[ 'content' ] . '-id' ); ?>"><?php echo esc_html( __( 'Id attribute', 'contact-form-7' ) ); ?></label></th>
 					<td><input type="text" name="id" class="idvalue oneline option" id="<?php echo esc_attr( $args[ 'content' ] . '-id' ); ?>" /></td>
 				</tr>
-
 				<tr>
-					<th><label>Theme:</label></th>
+					<th scope="row"><label for="<?php echo esc_attr( $args[ 'content' ] . '-captcha_size' ); ?>"><?php echo esc_html( __( 'Captcha size', 'contact-form-7' ) ); ?></label></th>
+					<td>
+						<select name="captcha_combobox">
+							<option value="1">1</option>
+							<option value="0.95">0.95</option>
+							<option value="0.85">0.85</option>
+							<option value="0.75">0.75</option>
+							<option value="0.65">0.65</option>
+							<option value="0.55">0.55</option>
+							<option value="0.50">0.50</option>					
+						</select>
+						<input type="hidden" name="captcha_size" class="captcha sizevalue oneline option" id="<?php echo esc_attr( $args[ 'content' ] . '-captcha-size' ); ?>" /></td>
+
+				</tr>
+				<tr>
+					<th><label>Theme</label></th>
 					<td>
 						<input type="checkbox" name="theme:dark" class="option" />&nbsp;<?php echo esc_html( __( "Use dark theme for No CAPTCHA reCAPTCHA?", 'google-nocaptcha-recaptcha-locale' ) ); ?>
 					</td>

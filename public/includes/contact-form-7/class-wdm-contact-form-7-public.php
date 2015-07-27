@@ -214,9 +214,12 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 			$site_key		 = $wdm_recaptcha_settings_values->get_option( 'general_site_key' );
 			$secret_key		 = $wdm_recaptcha_settings_values->get_option( 'general_secret_key' );
 			$language_code	 = $wdm_recaptcha_settings_values->get_option( 'general_language' );
+			
 			if ( $language_code == "" ) {
 				$language_code = "en";
 			}
+			
+		
 			if ( trim( $site_key ) != '' && trim( $secret_key ) != '' ) {
 				$tag			 = new WPCF7_Shortcode( $tag );
 				$class			 = wpcf7_form_controls_class( $tag->type );
@@ -231,7 +234,7 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 				}
 				$atts[ 'aria-invalid' ] = $validation_error ? 'true' : 'false';
 
-				wp_enqueue_script( 'wdm_render_recaptcha', plugins_url( '/assets/js/render_recaptcha.js', dirname( dirname( __FILE__ ) ) ), array(), time(), true );
+				wp_enqueue_script( 'wdm_render_recaptcha', plugins_url( '/assets/js/render-recaptcha.js', dirname( dirname( __FILE__ ) ) ), array(), time(), true );
 
 				wp_localize_script( 'wdm_render_recaptcha', 'wdm_recaptcha', array( 'sitekey' => $site_key,'validation_error'=>$validation_error ) );
 
@@ -252,21 +255,31 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 
 				$atts = array();
 
-				$atts[ 'class' ] = "wdm-nocapt-recapt " . $tag->get_class_option( $class );
-
+				$atts[ 'class' ] = "wdm-nocapt-recapt " . $tag->get_class_option( $class. " wdm-recaptcha-resize" );
+				
 				$atts[ 'id' ] = $recaptcha_id;
 				if ( $tag->has_option( 'theme:dark' ) ) {
 					$atts[ 'theme' ] = "dark";
 				} else {
 					$atts[ 'theme' ] = "light";
 				}
+				
+				if($tag->has_option( 'captcha_size' ))
+				{
+					$captcha_size=$tag->get_option( 'captcha_size' )[0];
+				}
+				else{
+					$captcha_size=1;
+				}
+							
 				$atts[ 'tabindex' ]	 = $tag->get_option( 'tabindex', 'int', true );
 				$atts[ 'type' ]		 = 'recaptcha';
 
 				$atts = wpcf7_format_atts( $atts );
 
-				$html = sprintf( '<div %1$s></div>', $atts );
-				
+				//$html = sprintf( '<div %1$s></div>', $atts );
+				$html = sprintf( '<div %1$s style="transform:scale('.$captcha_size.');transform-origin:0;"></div>', $atts );
+
 				if ( isset( $validation_error ) ) {
 					$html .= sprintf(
 					'<span class="wpcf7-form-control-wrap %1$s">%2$s</span>', sanitize_html_class( $tag->name ), $validation_error );
