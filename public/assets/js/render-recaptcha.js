@@ -1,5 +1,5 @@
 jQuery( window ).load( function () {
-
+   
     var a = [ ], i = 0;
     var captcha_count = jQuery( 'div[id^="wdm-nocapt-recapt-id-recaptcha"]' ).length;
     if ( captcha_count > 0 ) {
