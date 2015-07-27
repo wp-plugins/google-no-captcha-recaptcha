@@ -106,8 +106,11 @@ For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.m
 
 == Changelog ==
 
+= 4.0.1 =
+* Fixed Minor Bug
+
 = 4.0 =
-* Captcha resize & responsive.
+* Captcha resize & responsive
 
 = 3.0.3 =
 * Fixed Minor Bug
