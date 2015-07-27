@@ -1,0 +1,36 @@
+
+#wisdm-ad{
+
+    color: #888;
+    font-size: 9px;
+    padding-left: 2px;  
+    text-align: right;
+    width:50%;
+    line-height: 10px;
+}
+
+@media screen and (max-width: 330px) {
+    .wdm-recaptcha-resize{
+        transform:scale(0.77) !important;
+        transform-origin:0 0 !important;
+
+    }
+
+}
+@media screen and (max-width: 260px) {
+    .wdm-recaptcha-resize{
+        transform:scale(0.67) !important;
+        transform-origin:0 0 !important;
+
+    }
+
+}
+@media screen and (max-width: 240px) {
+    .wdm-recaptcha-resize{
+        transform:scale(0.53)!important;
+        transform-origin:0 0 !important;
+
+    }
+
+}
+
