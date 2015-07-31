@@ -106,6 +106,9 @@ For example, for German, name the files goole-nocaptcha-recaptcha-locale-de_DE.m
 
 == Changelog ==
 
+= 4.0.3 =
+* Fixed captcha resize issue in safari browser.
+
 = 4.0.2 =
 * Fixed undefined variable issue.
 * Fixed PHP 5.3 incompatibility issue.

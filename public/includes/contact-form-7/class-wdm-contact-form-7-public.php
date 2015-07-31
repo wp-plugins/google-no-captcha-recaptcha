@@ -278,8 +278,7 @@ if ( ! class_exists( 'Wdm_Contact_Form_7_Public' ) ) {
 
 				$atts = wpcf7_format_atts( $atts );
 
-				//$html = sprintf( '<div %1$s></div>', $atts );
-				$html = sprintf( '<div %1$s style="transform:scale('.$captcha_size.');transform-origin:0;"></div>', $atts );
+				$html = sprintf( '<div %1$s style="transform:scale('.$captcha_size.');transform-origin:0;-webkit-transform:scale('.$captcha_size.');transform:scale('.$captcha_size.');-webkit-transform-origin:0 0;transform-origin:0 0; 0"></div>', $atts );
 
 				if ( isset( $validation_error ) ) {
 					$html .= sprintf(
